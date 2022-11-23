@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.concesionario.app",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.0.0",
+    "applicationType": "monolith",
+    "baseName": "Concesionario",
+    "packageName": "com.concesionario.app",
+    "packageFolder": "com/concesionario/app",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDJjZWJkYmM5Yzc0MTAyZDBmM2I1YmNlNTdiODYwMmQ0ZGYxN2Y5Y2RjY2U2Y2MwY2FiZWM4OWFkZDg1YTBlMDNhZjU4Njk2ODJlOWVlY2I4NzQ4MzQ3N2U3NjY3Njc4MzQ1Njc5YzQ4YzI3NjNhYzI1MTU0NTY5MzM0YmQ1MjI=",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es", "en"]
+  }
+}

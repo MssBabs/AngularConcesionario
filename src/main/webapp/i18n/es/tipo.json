@@ -1,0 +1,11 @@
+{
+  "concesionarioApp": {
+    "Tipo": {
+      "null": "",
+      "COCHE": "COCHE",
+      "MOTO": "MOTO",
+      "PATINETE": "PATINETE",
+      "BICICLETA": "BICICLETA"
+    }
+  }
+}
