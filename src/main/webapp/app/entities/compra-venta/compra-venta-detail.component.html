@@ -20,13 +20,13 @@
                 <dt><span jhiTranslate="concesionarioApp.compraVenta.vehiculo">Vehiculo</span></dt>
                 <dd>
                     <div *ngIf="compraVenta.vehiculo">
-                        <a [routerLink]="['/vehiculo', compraVenta.vehiculo?.id, 'view']">{{compraVenta.vehiculo?.modelo}}{{compraVenta.vehiculo?.marca}}{{compraVenta.vehiculo?.matricula}}</a>
+                        <a [routerLink]="['/vehiculo', compraVenta.vehiculo?.id, 'view']">{{compraVenta.vehiculo?.modelo+" "+compraVenta.vehiculo?.marca+" "+compraVenta.vehiculo?.matricula}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="concesionarioApp.compraVenta.vendedor">Vendedor</span></dt>
                 <dd>
                     <div *ngIf="compraVenta.vendedor">
-                        <a [routerLink]="['/trabajador', compraVenta.vendedor?.id, 'view']">{{compraVenta.vendedor?.id}}{{compraVenta.vendedor?.nombre}}</a>
+                        <a [routerLink]="['/trabajador', compraVenta.vendedor?.id, 'view']">{{compraVenta.vendedor?.id+" "+compraVenta.vendedor?.nombre}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="concesionarioApp.compraVenta.cliente">Cliente</span></dt>
@@ -40,7 +40,7 @@
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'check'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
             </button>
 
             <button type="button"

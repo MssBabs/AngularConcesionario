@@ -1,6 +1,7 @@
 package com.concesionario.app.web.rest;
 
 import com.concesionario.app.domain.Vehiculo;
+import com.concesionario.app.domain.enumeration.Tipo;
 import com.concesionario.app.service.VehiculoService;
 import com.concesionario.app.web.rest.errors.BadRequestAlertException;
 
@@ -94,7 +95,18 @@ public class VehiculoResource {
     @GetMapping("/vehiculos")
     public ResponseEntity<List<Vehiculo>> getAllVehiculos(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
         log.debug("REST request to get a page of Vehiculos");
-        Page<Vehiculo> page = vehiculoService.findAll(pageable);
+
+        /*getvehiclesByType Filter*/
+        Page<Vehiculo> page =null;
+        if(queryParams.get("tipo") !=null ){
+            String tipo = queryParams.getFirst("tipo");
+
+             page = vehiculoService.getvehiclesByType(tipo, pageable);
+        }else{
+            page = vehiculoService.findAll(pageable);
+        }
+
+
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -124,4 +136,5 @@ public class VehiculoResource {
         vehiculoService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
 }

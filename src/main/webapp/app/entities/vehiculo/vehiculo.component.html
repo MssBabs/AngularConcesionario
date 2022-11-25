@@ -10,6 +10,40 @@
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
+    <!--New Buttton -> TodosFiltre-->
+    <button id="jh-create-entity"
+            class="btn btn-info float-right jh-create-entity create-vehiculo"
+            (click)="getAllVehicles()">
+        <span  jhiTranslate="concesionarioApp.vehiculo.home.all">Todos</span>
+    </button>
+    <!--TiposFiltre-->
+    <select id="field_tipo" (change)="getVehiclesByType($event.target.value)" name="vehiculo_tipo">
+        <option selected="true" disabled="disabled">
+            <span  jhiTranslate="concesionarioApp.vehiculo.home.types">Tipos</span>
+        </option>
+        <!--CAMBIAR -> Recoger las opciones desde la BD
+            ngFor="let item of items"
+          -->
+        <option value="COCHE">{{'concesionarioApp.Tipo.COCHE' | translate}}</option>
+        <option value="MOTO">{{'concesionarioApp.Tipo.MOTO' | translate}}</option>
+        <option value="PATINETE">{{'concesionarioApp.Tipo.PATINETE' | translate}}</option>
+        <option value="BICICLETA">{{'concesionarioApp.Tipo.BICICLETA' | translate}}</option>
+    </select>
+    <!--New Buttton -> DisponiblesFiltre
+    <button id="jh-create-entity"
+            class="btn btn-primary float-right jh-create-entity create-vehiculo"
+            (click)="getDisponibles()">
+        <fa-icon [icon]="'plus'"></fa-icon>
+        <span  jhiTranslate="">Disponibles</span>
+    </button>-->
+    <!--New Buttton -> NoDisponiblesFiltre
+    <button id="jh-create-entity"
+            class="btn btn-primary float-right jh-create-entity create-vehiculo"
+            (click)="getNoDisponibles()">
+        <fa-icon [icon]="'plus'"></fa-icon>
+        <span  jhiTranslate="">No Disponible</span>
+    </button>-->
+
     <div class="table-responsive" *ngIf="vehiculos">
         <table class="table table-striped">
             <thead>
@@ -41,11 +75,25 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
+                        <!--New Buttton -> PopUp detailsDialog-->
+                        <button type="submit"
+                                class="btn btn-success btn-sm"
+                                (click)="viewModel(vehiculo)">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.viewModel">ViewModel</span>
+                        </button>
                         <button type="submit"
                                 [routerLink]="['/vehiculo', vehiculo.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <!--New Buttton -> PopUp updateDialog-->
+                        <button type="submit"
+                                class="btn btn-success btn-sm"
+                                (click)="editModel(vehiculo)">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.editModel">EditModel</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', 'vehiculo', { outlets: { popup: vehiculo.id + '/delete'} }]"

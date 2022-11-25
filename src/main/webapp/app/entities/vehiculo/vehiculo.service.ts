@@ -49,6 +49,14 @@ export class VehiculoService {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  getvehiclesByType(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http
+      .get<IVehiculo[]>(this.resourceUrl, { params: options, observe: 'response' });
+  }
+
+
+
   protected convertDateFromClient(vehiculo: IVehiculo): IVehiculo {
     const copy: IVehiculo = Object.assign({}, vehiculo, {
       date: vehiculo.date != null && vehiculo.date.isValid() ? vehiculo.date.format(DATE_FORMAT) : null

@@ -100,9 +100,12 @@
       "cancel": "Cancel",
       "delete": "Delete",
       "edit": "Edit",
+      "editModel": "Edit in Model",
       "open": "Open",
       "save": "Save",
-      "view": "View"
+      "view": "View",
+      "viewModel": "View in Model",
+      "ok": "Ok"
     },
     "detail": {
       "field": "Field",

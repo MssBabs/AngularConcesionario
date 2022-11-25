@@ -4,7 +4,9 @@
       "home": {
         "title": "Vehiculos",
         "createLabel": "Crear nuevo Vehiculo",
-        "createOrEditLabel": "Crear o editar Vehiculo"
+        "createOrEditLabel": "Crear o editar Vehiculo",
+        "types": "Tipos",
+        "all": "Todos"
       },
       "created": "Un nuevo Vehiculo ha sido creado con el identificador {{ param }}",
       "updated": "Un Vehiculo ha sido actualizado con el identificador {{ param }}",

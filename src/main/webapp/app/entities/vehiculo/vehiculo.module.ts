@@ -13,6 +13,8 @@ import {
   vehiculoRoute,
   vehiculoPopupRoute
 } from './';
+import { VehiculoDetailsDialogComponent } from './vehiculo-detail-dialog.component';
+import { VehiculoUpdateDialogComponent } from './vehiculo-update-dialog.component';
 
 const ENTITY_STATES = [...vehiculoRoute, ...vehiculoPopupRoute];
 
@@ -21,11 +23,13 @@ const ENTITY_STATES = [...vehiculoRoute, ...vehiculoPopupRoute];
   declarations: [
     VehiculoComponent,
     VehiculoDetailComponent,
+    VehiculoDetailsDialogComponent,
     VehiculoUpdateComponent,
+    VehiculoUpdateDialogComponent,
     VehiculoDeleteDialogComponent,
     VehiculoDeletePopupComponent
   ],
-  entryComponents: [VehiculoComponent, VehiculoUpdateComponent, VehiculoDeleteDialogComponent, VehiculoDeletePopupComponent],
+  entryComponents: [VehiculoComponent, VehiculoUpdateComponent, VehiculoUpdateDialogComponent, VehiculoDeleteDialogComponent, VehiculoDetailsDialogComponent, VehiculoDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

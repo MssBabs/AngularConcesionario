@@ -4,7 +4,9 @@
       "home": {
         "title": "Vehiculos",
         "createLabel": "Create a new Vehiculo",
-        "createOrEditLabel": "Create or edit a Vehiculo"
+        "createOrEditLabel": "Create or edit a Vehiculo",
+        "types": "Types",
+        "all": "All"
       },
       "created": "A new Vehiculo is created with identifier {{ param }}",
       "updated": "A Vehiculo is updated with identifier {{ param }}",

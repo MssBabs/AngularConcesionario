@@ -10,6 +10,7 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { ClienteService } from './cliente.service';
+//import { ClienteDetailsDialogComponent } from './cliente-detail-dialog.component';
 
 @Component({
   selector: 'jhi-cliente',
@@ -29,6 +30,7 @@ export class ClienteComponent implements OnInit, OnDestroy {
   predicate: any;
   previousPage: any;
   reverse: any;
+  modalService: any;
 
   constructor(
     protected clienteService: ClienteService,
@@ -118,6 +120,20 @@ export class ClienteComponent implements OnInit, OnDestroy {
     }
     return result;
   }
+
+ /*NewButton PopUp detailsDialog
+ viewModel(cliente) {
+  const modalref = this.modalService.open(ClienteDetailsDialogComponent);
+
+  modalref.result.then(
+    (result) => {
+      alert("Se han mostrado los detalles correctamente.");
+    }
+  );
+
+  modalref.componentInstance.cliente = cliente;
+}*/
+
 
   protected paginateClientes(data: ICliente[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));

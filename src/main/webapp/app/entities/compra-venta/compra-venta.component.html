@@ -34,12 +34,12 @@
                 <td>{{compraVenta.precioTotal}}</td>
                 <td>
                     <div *ngIf="compraVenta.vehiculo">
-                        <a [routerLink]="['../vehiculo', compraVenta.vehiculo?.id, 'view' ]" >{{compraVenta.vehiculo?.modelo}}{{compraVenta.vehiculo?.marca}}{{compraVenta.vehiculo?.matricula}}</a>
+                        <a [routerLink]="['../vehiculo', compraVenta.vehiculo?.id, 'view' ]" >{{compraVenta.vehiculo?.modelo+" "+compraVenta.vehiculo?.marca+" "+compraVenta.vehiculo?.matricula}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="compraVenta.vendedor">
-                        <a [routerLink]="['../trabajador', compraVenta.vendedor?.id, 'view' ]" >{{compraVenta.vendedor?.id}}{{compraVenta.vendedor?.nombre}}</a>
+                        <a [routerLink]="['../trabajador', compraVenta.vendedor?.id, 'view' ]" >{{compraVenta.vendedor?.id+" "+compraVenta.vendedor?.nombre}}</a>
                     </div>
                 </td>
                 <td>

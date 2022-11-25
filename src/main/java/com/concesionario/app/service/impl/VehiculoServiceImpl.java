@@ -2,6 +2,7 @@ package com.concesionario.app.service.impl;
 
 import com.concesionario.app.service.VehiculoService;
 import com.concesionario.app.domain.Vehiculo;
+import com.concesionario.app.domain.enumeration.Tipo;
 import com.concesionario.app.repository.VehiculoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +54,6 @@ public class VehiculoServiceImpl implements VehiculoService {
         return vehiculoRepository.findAll(pageable);
     }
 
-
     /**
      * Get one vehiculo by id.
      *
@@ -76,5 +76,20 @@ public class VehiculoServiceImpl implements VehiculoService {
     public void delete(Long id) {
         log.debug("Request to delete Vehiculo : {}", id);
         vehiculoRepository.deleteById(id);
+    }
+
+
+    /**
+     * Get vehiculos by Types.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Vehiculo> getvehiclesByType(String tipo, Pageable pageable){
+        log.debug("Request to get all Vehiculos");
+
+        return vehiculoRepository.getvehiclesByType(Tipo.valueOf(tipo),  pageable);
     }
 }

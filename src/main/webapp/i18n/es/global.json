@@ -100,9 +100,12 @@
       "cancel": "Cancelar",
       "delete": "Eliminar",
       "edit": "Editar",
+      "editModel": "Edit en Model",
       "open": "Open",
       "save": "Guardar",
-      "view": "Vista"
+      "view": "Vista",
+      "viewModel": "Ver en Modal",
+      "ok": "Ok"
     },
     "detail": {
       "field": "Campo",

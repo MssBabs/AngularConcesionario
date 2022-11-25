@@ -28,7 +28,6 @@ public interface VehiculoService {
      */
     Page<Vehiculo> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" vehiculo.
      *
@@ -43,4 +42,13 @@ public interface VehiculoService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get get vehicles By Type.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<Vehiculo> getvehiclesByType(String tipo, Pageable pageable);
+
 }

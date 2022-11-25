@@ -10,6 +10,10 @@ import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { VehiculoService } from './vehiculo.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VehiculoDetailsDialogComponent } from './vehiculo-detail-dialog.component';
+import { VehiculoUpdateDialogComponent } from './vehiculo-update-dialog.component';
+
 
 @Component({
   selector: 'jhi-vehiculo',
@@ -37,10 +41,11 @@ export class VehiculoComponent implements OnInit, OnDestroy {
     protected accountService: AccountService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
-    protected eventManager: JhiEventManager
+    protected eventManager: JhiEventManager,
+    private modalService: NgbModal
   ) {
-    this.itemsPerPage = ITEMS_PER_PAGE;
-    this.routeData = this.activatedRoute.data.subscribe(data => {
+      this.itemsPerPage = ITEMS_PER_PAGE;
+      this.routeData = this.activatedRoute.data.subscribe(data => {
       this.page = data.pagingParams.page;
       this.previousPage = data.pagingParams.page;
       this.reverse = data.pagingParams.ascending;
@@ -76,6 +81,7 @@ export class VehiculoComponent implements OnInit, OnDestroy {
         sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
       }
     });
+    /*Recargar Objeto completo*/
     this.loadAll();
   }
 
@@ -118,6 +124,54 @@ export class VehiculoComponent implements OnInit, OnDestroy {
     }
     return result;
   }
+
+  /*NewButton PopUp detailsDialog*/
+  viewModel(vehiculo) {
+		const modalref = this.modalService.open(VehiculoDetailsDialogComponent);
+
+    modalref.result.then(
+		  (result) => {
+        alert("Se han mostrado los detalles correctamente.");
+		  }
+		);
+
+    modalref.componentInstance.vehiculo = vehiculo;
+	}
+
+  /*NewButton PopUp updateDialog*/
+  editModel(vehiculo) {
+		const modalref = this.modalService.open(VehiculoUpdateDialogComponent);
+
+    modalref.result.then(
+		  (result) => {
+        alert("Se han modificado los datos del vehiculo correctamente.");
+        this.loadAll()
+		  }
+		);
+
+    modalref.componentInstance.vehiculo = vehiculo;
+
+    //modalref.componentInstance.ngOnInit();
+	}
+
+  /*New getAllVehicles Filtre*/
+
+  /*New getVehiclesByType Filtre*/
+  getVehiclesByType(evento) {
+    console.log(evento);
+    this.vehiculoService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort(),
+        tipo: evento
+      })
+      .subscribe(
+        (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
+
 
   protected paginateVehiculos(data: IVehiculo[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));
