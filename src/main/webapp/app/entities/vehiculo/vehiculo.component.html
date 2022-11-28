@@ -11,38 +11,39 @@
     <jhi-alert></jhi-alert>
     <br/>
     <!--New Buttton -> TodosFiltre-->
-    <button id="jh-create-entity"
+    <button id="field_todos" name="vehiculo_todos"
             class="btn btn-info float-right jh-create-entity create-vehiculo"
             (click)="getAllVehicles()">
         <span  jhiTranslate="concesionarioApp.vehiculo.home.all">Todos</span>
     </button>
     <!--TiposFiltre-->
-    <select id="field_tipo" (change)="getVehiclesByType($event.target.value)" name="vehiculo_tipo">
+    <select id="field_tipo" name="vehiculo_tipo"
+            class="btn btn-info float-right jh-create-entity create-vehiculo"
+            (change)="getVehiclesByType($event.target.value)">
         <option selected="true" disabled="disabled">
             <span  jhiTranslate="concesionarioApp.vehiculo.home.types">Tipos</span>
         </option>
         <!--CAMBIAR -> Recoger las opciones desde la BD
-            ngFor="let item of items"
+            ->Cambiar tipos a una entidad y no dejarlos como enum (No permite cambios dinamicos)
+            ->Recorrer con un ngFor para crear los options
           -->
         <option value="COCHE">{{'concesionarioApp.Tipo.COCHE' | translate}}</option>
         <option value="MOTO">{{'concesionarioApp.Tipo.MOTO' | translate}}</option>
         <option value="PATINETE">{{'concesionarioApp.Tipo.PATINETE' | translate}}</option>
         <option value="BICICLETA">{{'concesionarioApp.Tipo.BICICLETA' | translate}}</option>
     </select>
-    <!--New Buttton -> DisponiblesFiltre
-    <button id="jh-create-entity"
-            class="btn btn-primary float-right jh-create-entity create-vehiculo"
-            (click)="getDisponibles()">
-        <fa-icon [icon]="'plus'"></fa-icon>
-        <span  jhiTranslate="">Disponibles</span>
-    </button>-->
-    <!--New Buttton -> NoDisponiblesFiltre
-    <button id="jh-create-entity"
-            class="btn btn-primary float-right jh-create-entity create-vehiculo"
-            (click)="getNoDisponibles()">
-        <fa-icon [icon]="'plus'"></fa-icon>
-        <span  jhiTranslate="">No Disponible</span>
-    </button>-->
+    <!--New Buttton -> DisponiblesFiltre-->
+    <button id="field_disponible" name="vehiculo_disponible"
+            class="btn btn-info float-right jh-create-entity create-vehiculo"
+            (click)="getAvailableVehicles()">
+        <span  jhiTranslate="concesionarioApp.vehiculo.available">Disponibles</span>
+    </button>
+    <!--New Buttton -> NoDisponiblesFiltre-->
+    <button id="field_no_disponible" name="vehiculo_no_disponible"
+            class="btn btn-info float-right jh-create-entity create-vehiculo"
+            (click)="getNotAvailableVehicles()">
+        <span  jhiTranslate="concesionarioApp.vehiculo.home.notAvailable">No Disponible</span>
+    </button>
 
     <div class="table-responsive" *ngIf="vehiculos">
         <table class="table table-striped">
@@ -55,6 +56,7 @@
             <th jhiSortBy="matricula"><span jhiTranslate="concesionarioApp.vehiculo.matricula">Matricula</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="marca"><span jhiTranslate="concesionarioApp.vehiculo.marca">Marca</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="date"><span jhiTranslate="concesionarioApp.vehiculo.date">Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usado"><span jhiTranslate="concesionarioApp.vehiculo.date">Usado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -67,6 +69,7 @@
                 <td>{{vehiculo.matricula}}</td>
                 <td>{{vehiculo.marca}}</td>
                 <td>{{vehiculo.date | date:'mediumDate'}}</td>
+                <td>{{vehiculo.usado}}</td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"

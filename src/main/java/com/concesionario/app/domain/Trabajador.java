@@ -38,6 +38,17 @@ public class Trabajador implements Serializable {
     @Column(name = "telefono")
     private Integer telefono;
 
+    @Column(name = "comision")
+    private Integer comision;
+
+    public Integer getComision() {
+        return comision;
+    }
+
+    public void setComision(Integer comision) {
+        this.comision = comision;
+    }
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

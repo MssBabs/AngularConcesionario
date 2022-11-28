@@ -125,7 +125,6 @@ export class VehiculoComponent implements OnInit, OnDestroy {
     return result;
   }
 
-  /*NewButton PopUp detailsDialog*/
   viewModel(vehiculo) {
 		const modalref = this.modalService.open(VehiculoDetailsDialogComponent);
 
@@ -138,7 +137,6 @@ export class VehiculoComponent implements OnInit, OnDestroy {
     modalref.componentInstance.vehiculo = vehiculo;
 	}
 
-  /*NewButton PopUp updateDialog*/
   editModel(vehiculo) {
 		const modalref = this.modalService.open(VehiculoUpdateDialogComponent);
 
@@ -154,9 +152,19 @@ export class VehiculoComponent implements OnInit, OnDestroy {
     //modalref.componentInstance.ngOnInit();
 	}
 
-  /*New getAllVehicles Filtre*/
+  getAllVehicles(){
+    this.vehiculoService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe(
+        (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
 
-  /*New getVehiclesByType Filtre*/
   getVehiclesByType(evento) {
     console.log(evento);
     this.vehiculoService
@@ -171,6 +179,36 @@ export class VehiculoComponent implements OnInit, OnDestroy {
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
+
+  /*New getAvailableVehicles Filtre*/
+  getAvailableVehicles(){
+    this.vehiculoService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe(
+        (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
+
+  /*New getNotAvailableVehicles Filtre*/
+  getNotAvailableVehicles(){
+    this.vehiculoService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe(
+        (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
+        (res: HttpErrorResponse) => this.onError(res.message)
+      );
+  }
+
+
 
 
   protected paginateVehiculos(data: IVehiculo[], headers: HttpHeaders) {

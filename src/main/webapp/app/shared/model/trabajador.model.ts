@@ -5,6 +5,7 @@ export interface ITrabajador {
   apellido?: string;
   cargo?: string;
   telefono?: number;
+  comision?: number;
 }
 
 export class Trabajador implements ITrabajador {
@@ -14,6 +15,7 @@ export class Trabajador implements ITrabajador {
     public nombre?: string,
     public apellido?: string,
     public cargo?: string,
-    public telefono?: number
+    public telefono?: number,
+    public comision?: number
   ) {}
 }

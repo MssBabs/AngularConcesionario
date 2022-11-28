@@ -47,7 +47,13 @@
                         </span>
                     </div>
                 </div>
-
+                <!--Nuevo campo usado-->
+                <div class="form-check">
+                    <label class="form-check-label" for="field_usado">
+                        <input class="form-check-input" type="checkbox" id="field_usado" name="usado"  formControlName="usado">
+                        <span jhiTranslate="">Usado</span>
+                    </label>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
