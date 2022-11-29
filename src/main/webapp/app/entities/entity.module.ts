@@ -31,6 +31,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'trabajador',
         loadChildren: './trabajador/trabajador.module#ConcesionarioTrabajadorModule'
+      },
+      {
+        path: 'comision',
+        loadChildren: './comision/comision.module#ConcesionarioComisionModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

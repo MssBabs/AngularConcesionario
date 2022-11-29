@@ -181,12 +181,13 @@ export class VehiculoComponent implements OnInit, OnDestroy {
   }
 
   /*New getAvailableVehicles Filtre*/
-  getAvailableVehicles(){
+  getAvailableVehicles(evento){
     this.vehiculoService
       .query({
         page: this.page - 1,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
+        disponible: evento
       })
       .subscribe(
         (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),
@@ -195,12 +196,13 @@ export class VehiculoComponent implements OnInit, OnDestroy {
   }
 
   /*New getNotAvailableVehicles Filtre*/
-  getNotAvailableVehicles(){
+  getNotAvailableVehicles(evento){
     this.vehiculoService
       .query({
         page: this.page - 1,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
+        noDisponible: evento
       })
       .subscribe(
         (res: HttpResponse<IVehiculo[]>) => this.paginateVehiculos(res.body, res.headers),

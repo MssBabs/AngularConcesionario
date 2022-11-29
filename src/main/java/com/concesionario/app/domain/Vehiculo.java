@@ -49,6 +49,13 @@ public class Vehiculo implements Serializable {
     @Column(name = "usado")
     private Boolean usado;
 
+    /*Nueva relacion oneToOne con compraventa*/
+    @OneToOne(mappedBy = "vehiculo")
+    private CompraVenta compraVenta;
+
+
+
+
     public Boolean getUsado() {
         return usado;
     }

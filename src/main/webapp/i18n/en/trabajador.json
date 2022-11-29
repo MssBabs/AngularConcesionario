@@ -16,10 +16,12 @@
         "title": "Trabajador"
       },
       "dni": "Dni",
-      "nombre": "Nombre",
+      "nombre": "Name",
       "apellido": "Apellido",
       "cargo": "Cargo",
-      "telefono": "Telefono"
+      "telefono": "Telefono",
+
+      "countSales": "Number of sales"
     }
   }
 }

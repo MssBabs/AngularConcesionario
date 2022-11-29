@@ -16,12 +16,31 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
+
     /**
      * Get vehiculos by Types.
      *
      * @param pageable
      * @return getTypes
      */
-    @Query("SELECT v FROM Vehiculo v WHERE v.tipo like :tipo")
+    @Query("SELECT v FROM Vehiculo v LEFT JOIN CompraVenta cv ON cv.vehiculo.id = v.id WHERE v.tipo like :tipo")
     Page<Vehiculo> getvehiclesByType(@Param("tipo") Tipo tipoVehiculo, Pageable pageable);
+
+    /**
+     * Get vehiculos by Types.
+     *
+     * @param pageable
+     * @return getTypes
+     */
+    @Query("SELECT v FROM Vehiculo v LEFT JOIN CompraVenta cv ON cv.vehiculo.id = v.id WHERE cv.id IS NULL")
+    Page<Vehiculo> getAvailableVehicles(Pageable pageable);
+
+    /**
+     * Get vehiculos by Types.
+     *
+     * @param pageable
+     * @return getTypes
+     */
+    @Query("SELECT v FROM Vehiculo v LEFT JOIN CompraVenta cv ON cv.vehiculo.id = v.id WHERE cv.id IS NOT NULL")
+    Page<Vehiculo> getNotAvailableVehicles(Pageable pageable);
 }

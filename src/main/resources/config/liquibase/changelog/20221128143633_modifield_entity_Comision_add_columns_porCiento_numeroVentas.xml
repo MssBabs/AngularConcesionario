@@ -15,14 +15,19 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
 
     <!--
-        20221128100222_modifield_entity_Trabajador_add_column_comision
-        New column comision(Integer)
+        20221128143633_modifield_entity_Comision_add_columns_porCiento_numeroVentas
+        Add the column porCiento
+        Add the column numeroVentas
     -->
-    <changeSet id="20221128100222" author="Babs">
-        <addColumn tableName="trabajador">
-            <column name="comision" type="integer">
+    <changeSet id="20221128143633" author="Babs">
+        <addColumn tableName="comision">
+            <column name="porciento" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numeroVentas" type="integer">
                 <constraints nullable="false"/>
             </column>
         </addColumn>
+
     </changeSet>
 </databaseChangeLog>

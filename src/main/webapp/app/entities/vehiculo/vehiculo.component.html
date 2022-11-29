@@ -33,15 +33,15 @@
         <option value="BICICLETA">{{'concesionarioApp.Tipo.BICICLETA' | translate}}</option>
     </select>
     <!--New Buttton -> DisponiblesFiltre-->
-    <button id="field_disponible" name="vehiculo_disponible"
+    <button id="field_disponible" name="vehiculo_disponible" value="disponible"
             class="btn btn-info float-right jh-create-entity create-vehiculo"
-            (click)="getAvailableVehicles()">
-        <span  jhiTranslate="concesionarioApp.vehiculo.available">Disponibles</span>
+            (click)="getAvailableVehicles($event.target.value)">
+        <span  jhiTranslate="concesionarioApp.vehiculo.home.available">Disponibles</span>
     </button>
     <!--New Buttton -> NoDisponiblesFiltre-->
-    <button id="field_no_disponible" name="vehiculo_no_disponible"
+    <button id="field_no_disponible" name="vehiculo_no_disponible" value="noDisponible"
             class="btn btn-info float-right jh-create-entity create-vehiculo"
-            (click)="getNotAvailableVehicles()">
+            (click)="getNotAvailableVehicles($event.target.value)">
         <span  jhiTranslate="concesionarioApp.vehiculo.home.notAvailable">No Disponible</span>
     </button>
 

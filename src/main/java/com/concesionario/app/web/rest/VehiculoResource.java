@@ -96,12 +96,26 @@ public class VehiculoResource {
     public ResponseEntity<List<Vehiculo>> getAllVehiculos(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
         log.debug("REST request to get a page of Vehiculos");
 
-        /*getvehiclesByType Filter*/
+        /*Filters
+         * Como hacer query dinamica ?
+         */
         Page<Vehiculo> page =null;
-        if(queryParams.get("tipo") !=null ){
-            String tipo = queryParams.getFirst("tipo");
+        if(queryParams.get("tipo") != null || queryParams.get("disponible") != null || queryParams.get("noDisponible") != null){
+            log.debug("Hola barbarita :)");
 
-             page = vehiculoService.getvehiclesByType(tipo, pageable);
+            /*getvehiclesByType Filtre*/
+            if(queryParams.get("tipo") != null){
+                String tipo = queryParams.getFirst("tipo");
+                page = vehiculoService.getvehiclesByType(tipo, pageable);
+            }
+            /*getAvailableVehicles Filtre*/
+            if(queryParams.get("disponible") != null){
+                page = vehiculoService.getAvailableVehicles(pageable);
+            }
+            /*getNotAvailableVehicles Filtre*/
+            if(queryParams.get("noDisponible") != null){
+                page = vehiculoService.getNotAvailableVehicles(pageable);
+            }
         }else{
             page = vehiculoService.findAll(pageable);
         }

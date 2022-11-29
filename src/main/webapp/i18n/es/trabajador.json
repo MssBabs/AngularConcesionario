@@ -19,7 +19,9 @@
       "nombre": "Nombre",
       "apellido": "Apellido",
       "cargo": "Cargo",
-      "telefono": "Telefono"
+      "telefono": "Telefono",
+
+      "countSales": "Numero de Ventas"
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "concesionarioApp": {
+    "comision": {
+      "home": {
+        "title": "Comisions",
+        "createLabel": "Create a new Comision",
+        "createOrEditLabel": "Create or edit a Comision"
+      },
+      "created": "A new Comision is created with identifier {{ param }}",
+      "updated": "A Comision is updated with identifier {{ param }}",
+      "deleted": "A Comision is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Comision {{ id }}?"
+      },
+      "detail": {
+        "title": "Comision"
+      }
+    }
+  }
+}

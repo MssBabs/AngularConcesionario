@@ -47,6 +47,9 @@ public class CompraVenta implements Serializable {
     @JsonIgnoreProperties("compraVentas")
     private Cliente cliente;
 
+
+
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

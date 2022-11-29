@@ -52,7 +52,8 @@ export class VehiculoService {
   getvehiclesByType(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http
-      .get<IVehiculo[]>(this.resourceUrl, { params: options, observe: 'response' });
+      .get<IVehiculo[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 
   getAllVehicles(req?: any): Observable<EntityArrayResponseType>{

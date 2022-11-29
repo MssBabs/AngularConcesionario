@@ -9,6 +9,7 @@
     <include file="config/liquibase/changelog/20221122114958_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221122114959_added_entity_CompraVenta.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20221122115000_added_entity_Trabajador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221128122948_added_entity_Comision.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- <include file="config/liquibase/changelog/20221122114958_added_entity_constraints_Cliente.xml" relativeToChangelogFile="false"/> -->
     <include file="config/liquibase/changelog/20221122114959_added_entity_constraints_CompraVenta.xml" relativeToChangelogFile="false"/>
@@ -17,5 +18,5 @@
 
     <!--News likibase-->
     <include file="config/liquibase/changelog/20221125131333_modifield_entity_Vehiculo_add_column_usado.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20221128100222_modifield_entity_Trabajador_add_column_comision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221128143633_modifield_entity_Comision_add_columns_porCiento_numeroVentas.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

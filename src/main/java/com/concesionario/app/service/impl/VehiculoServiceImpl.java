@@ -92,4 +92,32 @@ public class VehiculoServiceImpl implements VehiculoService {
 
         return vehiculoRepository.getvehiclesByType(Tipo.valueOf(tipo),  pageable);
     }
+
+    /**
+     * Get Available vehicles.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Vehiculo> getAvailableVehicles(Pageable pageable){
+        log.debug("Request to get all Vehiculos");
+
+        return vehiculoRepository.getAvailableVehicles(pageable);
+    }
+
+    /**
+     * Get not Available vehicles.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Vehiculo> getNotAvailableVehicles(Pageable pageable){
+        log.debug("Request to get all Vehiculos");
+
+        return vehiculoRepository.getNotAvailableVehicles(pageable);
+    }
 }

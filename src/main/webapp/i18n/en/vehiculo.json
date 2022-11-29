@@ -7,6 +7,7 @@
         "createOrEditLabel": "Create or edit a Vehiculo",
         "types": "Types",
         "all": "All",
+        "available": "Available",
         "notAvailable": "Not Available"
       },
       "created": "A new Vehiculo is created with identifier {{ param }}",
@@ -23,8 +24,7 @@
       "precio": "Precio",
       "matricula": "Matricula",
       "marca": "Marca",
-      "date": "Date",
-      "available": "Available"
+      "date": "Date"
     }
   }
 }

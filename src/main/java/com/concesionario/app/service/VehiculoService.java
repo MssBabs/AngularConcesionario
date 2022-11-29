@@ -44,11 +44,26 @@ public interface VehiculoService {
     void delete(Long id);
 
     /**
-     * Get get vehicles By Type.
+     * Get vehicles By Type.
      *
      * @param pageable the pagination information.
      * @return the list of entities.
      */
     Page<Vehiculo> getvehiclesByType(String tipo, Pageable pageable);
 
+    /**
+     * Get Available vehicles.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<Vehiculo> getAvailableVehicles(Pageable pageable);
+
+    /**
+     * Get not Available vehicles.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<Vehiculo> getNotAvailableVehicles(Pageable pageable);
 }
