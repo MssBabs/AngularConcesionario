@@ -5,15 +5,14 @@
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="concesionarioApp.trabajador.home.createLabel">Create new Trabajador</span>
         </button>
-        <button id="jh-create-entity"
-                class="btn btn-info float-right"
-                [routerLink]="['/trabajador/commissions']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="concesionarioApp.commissions.home.defineCommissions">Define Commissions</span>
-        </button>
     </h2>
     <jhi-alert></jhi-alert>
     <br/>
+    <button id="jh-create-entity"
+            class="btn btn-info float-right"
+            [routerLink]="['../comision']">
+        <span  jhiTranslate="concesionarioApp.comision.seeCommissions">See commissions</span>
+    </button>
     <div class="table-responsive" *ngIf="trabajadors">
         <table class="table table-striped">
             <thead>
@@ -25,7 +24,7 @@
             <th jhiSortBy="cargo"><span jhiTranslate="concesionarioApp.trabajador.cargo">Cargo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="telefono"><span jhiTranslate="concesionarioApp.trabajador.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="countSales"><span jhiTranslate="concesionarioApp.trabajador.countSales">Numero de Ventas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="commissions"><span jhiTranslate="concesionarioApp.commissions.home.title">Comision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="commissions"><span jhiTranslate="concesionarioApp.comision.home.title">Comision</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -37,9 +36,8 @@
                 <td>{{trabajador.apellido}}</td>
                 <td>{{trabajador.cargo}}</td>
                 <td>{{trabajador.telefono}}</td>
-                <!--<td>{{numVentas}}</td>-->
-                <td></td>
-                <!--<td>{{comision}}</td>-->
+                <td>{{trabajador.numeroVentas}}</td>
+                <td>{{trabajador.comision}}</td>
                 <td></td>
                 <td class="text-right">
                     <div class="btn-group">

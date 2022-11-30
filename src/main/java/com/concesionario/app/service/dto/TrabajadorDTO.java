@@ -1,8 +1,5 @@
 package com.concesionario.app.service.dto;
 
-import com.concesionario.app.domain.Comision;
-import com.concesionario.app.domain.Trabajador;
-
 
 /**
  * A DTO representing a trabajador, with countSales and commissions.
@@ -10,20 +7,20 @@ import com.concesionario.app.domain.Trabajador;
 public class TrabajadorDTO {
     /* Trabajador Entity */
     private Long id;
-    private String nombreCompleto;  /* == nombre + apellido */
+    private String dni;
+    private String nombre;
+    private String apellido;
     private String cargo;
+    private Integer telefono;
 
     /* Otros */
     private Integer numeroVentas;   /* == count sobre las contraventas registradas al id de este usario */
 
     /* Comision Entity */
-    private Long comision;       /* == comision.id asignado en funcion del numero de ventas */
+    private Float comision;       /* == comision.id asignado en funcion del numero de ventas */
 
 
-    public TrabajadorDTO(Trabajador trabajador, Comision comision) {
-        this.id = trabajador.getId();
-        this.nombreCompleto = trabajador.getNombre() + " " + trabajador.getApellido();
-        this.cargo = trabajador.getCargo();
+    public TrabajadorDTO() {
     }
 
 
@@ -36,12 +33,30 @@ public class TrabajadorDTO {
     }
 
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
+    public String getDni() {
+        return dni;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
 
@@ -54,6 +69,15 @@ public class TrabajadorDTO {
     }
 
 
+    public Integer getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(Integer telefono) {
+        this.telefono = telefono;
+    }
+
+
     public Integer getNumeroVentas() {
         return numeroVentas;
     }
@@ -63,11 +87,11 @@ public class TrabajadorDTO {
     }
 
 
-    public Long getComision() {
+    public Float getComision() {
         return comision;
     }
 
-    public void setComision(Long comision) {
+    public void setComision(Float comision) {
         this.comision = comision;
     }
 }

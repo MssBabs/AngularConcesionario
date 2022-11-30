@@ -27,7 +27,7 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
     Page<Vehiculo> getvehiclesByType(@Param("tipo") Tipo tipoVehiculo, Pageable pageable);
 
     /**
-     * Get vehiculos by Types.
+     * Get Available vehiculos.
      *
      * @param pageable
      * @return getTypes
@@ -36,7 +36,7 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
     Page<Vehiculo> getAvailableVehicles(Pageable pageable);
 
     /**
-     * Get vehiculos by Types.
+     * Get Not Available vehiculos.
      *
      * @param pageable
      * @return getTypes

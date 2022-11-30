@@ -14,7 +14,10 @@
       },
       "detail": {
         "title": "Comision"
-      }
+      },
+      "porciento":"%",
+      "numeroVentas": "Number of sales",
+      "seeCommissions": "See commissions"
     }
   }
 }

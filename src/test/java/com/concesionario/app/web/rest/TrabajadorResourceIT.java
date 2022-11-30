@@ -3,6 +3,7 @@ package com.concesionario.app.web.rest;
 import com.concesionario.app.ConcesionarioApp;
 import com.concesionario.app.domain.Trabajador;
 import com.concesionario.app.repository.TrabajadorRepository;
+import com.concesionario.app.service.TrabajadorDTOService;
 import com.concesionario.app.service.TrabajadorService;
 import com.concesionario.app.web.rest.errors.ExceptionTranslator;
 
@@ -56,6 +57,9 @@ public class TrabajadorResourceIT {
     private TrabajadorService trabajadorService;
 
     @Autowired
+    private TrabajadorDTOService trabajadorDTOService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -77,7 +81,7 @@ public class TrabajadorResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final TrabajadorResource trabajadorResource = new TrabajadorResource(trabajadorService);
+        final TrabajadorResource trabajadorResource = new TrabajadorResource(trabajadorService, trabajadorDTOService);
         this.restTrabajadorMockMvc = MockMvcBuilders.standaloneSetup(trabajadorResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -166,7 +170,7 @@ public class TrabajadorResourceIT {
             .andExpect(jsonPath("$.[*].cargo").value(hasItem(DEFAULT_CARGO.toString())))
             .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO)));
     }
-    
+
     @Test
     @Transactional
     public void getTrabajador() throws Exception {

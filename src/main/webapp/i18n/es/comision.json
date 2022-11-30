@@ -2,7 +2,7 @@
   "concesionarioApp": {
     "comision": {
       "home": {
-        "title": "Comisions",
+        "title": "Comision",
         "createLabel": "Crear nuevo Comision",
         "createOrEditLabel": "Crear o editar Comision"
       },
@@ -14,7 +14,10 @@
       },
       "detail": {
         "title": "Comision"
-      }
+      },
+      "porciento":"%",
+      "numeroVentas": "Numero de Ventas",
+      "seeCommissions": "Consultar Comisiones"
     }
   }
 }

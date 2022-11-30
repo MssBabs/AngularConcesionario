@@ -18,5 +18,6 @@
 
     <!--News likibase-->
     <include file="config/liquibase/changelog/20221125131333_modifield_entity_Vehiculo_add_column_usado.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20221128143633_modifield_entity_Comision_add_columns_porCiento_numeroVentas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221129120555_modifield_entity_Comision_add_column_porciento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221129121133_modifield_entity_Comision_add_column_numeroVentas.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

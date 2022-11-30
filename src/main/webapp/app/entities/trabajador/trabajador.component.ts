@@ -119,6 +119,7 @@ export class TrabajadorComponent implements OnInit, OnDestroy {
     return result;
   }
 
+
   protected paginateTrabajadors(data: ITrabajador[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));
     this.totalItems = parseInt(headers.get('X-Total-Count'), 10);

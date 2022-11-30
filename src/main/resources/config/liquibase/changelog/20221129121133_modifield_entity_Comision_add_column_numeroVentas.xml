@@ -6,25 +6,13 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <property name="now" value="now()" dbms="h2"/>
-
-    <property name="now" value="now()" dbms="mysql"/>
-    <property name="autoIncrement" value="true"/>
-
-    <property name="floatType" value="float4" dbms="postgresql, h2"/>
-    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
-
     <!--
-        20221128143633_modifield_entity_Comision_add_columns_porCiento_numeroVentas
-        Add the column porCiento
-        Add the column numeroVentas
+        20221129121133_modifield_entity_Comision_add_column_numeroVentas
+        Add the column numero_ventas(numeroVentas)
     -->
-    <changeSet id="20221128143633" author="Babs">
+    <changeSet id="20221129121133" author="Babs">
         <addColumn tableName="comision">
-            <column name="porciento" type="double">
-                <constraints nullable="false"/>
-            </column>
-            <column name="numeroVentas" type="integer">
+            <column name="numero_ventas" type="integer">
                 <constraints nullable="false"/>
             </column>
         </addColumn>

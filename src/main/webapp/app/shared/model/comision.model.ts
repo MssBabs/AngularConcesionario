@@ -1,4 +1,5 @@
 export interface IComision {
+  date: any;
   id?: number;
   porciento?: number;
   numeroVentas?: number;
@@ -10,4 +11,5 @@ export class Comision implements IComision {
     public porciento?: number,
     public numeroVentas?: number
     ) {}
+  date: any;
 }

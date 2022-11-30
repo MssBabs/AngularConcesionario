@@ -24,7 +24,8 @@
       "precio": "Precio",
       "matricula": "Matricula",
       "marca": "Marca",
-      "date": "Date"
+      "date": "Fecha",
+      "usado": "Usado"
     }
   }
 }

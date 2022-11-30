@@ -24,12 +24,12 @@ public class Comision implements Serializable {
     private Long id;
 
     /*New campo porciento*/
-    @Column(name = "por_ciento")
+    @Column(name = "porciento")
     private Float porciento;
 
     /*New campo numeroVentas*/
     @Column(name = "numero_ventas")
-    private Float numeroVentas;
+    private Integer numeroVentas;
 
     /*
      *  @OneToMany
@@ -55,11 +55,11 @@ public class Comision implements Serializable {
         this.porciento = porciento;
     }
 
-    public Float getNumeroVentas() {
+    public Integer getNumeroVentas() {
         return numeroVentas;
     }
 
-    public void setNumeroVentas(Float numeroVentas) {
+    public void setNumeroVentas(Integer numeroVentas) {
         this.numeroVentas = numeroVentas;
     }
 
@@ -85,6 +85,8 @@ public class Comision implements Serializable {
     public String toString() {
         return "Comision{" +
             "id=" + getId() +
+            "porciento=" + getPorciento() +
+            "numeroVentas=" + getNumeroVentas() +
             "}";
     }
 }

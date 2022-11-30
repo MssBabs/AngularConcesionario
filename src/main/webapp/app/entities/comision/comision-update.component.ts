@@ -15,7 +15,9 @@ export class ComisionUpdateComponent implements OnInit {
   isSaving: boolean;
 
   editForm = this.fb.group({
-    id: []
+    id: [],
+    porciento: [],
+    numeroVentas: []
   });
 
   constructor(protected comisionService: ComisionService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -30,7 +32,9 @@ export class ComisionUpdateComponent implements OnInit {
 
   updateForm(comision: IComision) {
     this.editForm.patchValue({
-      id: comision.id
+      id: comision.id,
+      porciento: comision.porciento,
+      numeroVentas: comision.numeroVentas
     });
   }
 
@@ -51,7 +55,9 @@ export class ComisionUpdateComponent implements OnInit {
   private createFromForm(): IComision {
     const entity = {
       ...new Comision(),
-      id: this.editForm.get(['id']).value
+      id: this.editForm.get(['id']).value,
+      porciento: this.editForm.get(['porciento']).value,
+      numeroVentas: this.editForm.get(['numeroVentas']).value
     };
     return entity;
   }

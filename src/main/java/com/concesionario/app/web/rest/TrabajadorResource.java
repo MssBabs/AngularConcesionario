@@ -1,7 +1,9 @@
 package com.concesionario.app.web.rest;
 
 import com.concesionario.app.domain.Trabajador;
+import com.concesionario.app.service.TrabajadorDTOService;
 import com.concesionario.app.service.TrabajadorService;
+import com.concesionario.app.service.dto.TrabajadorDTO;
 import com.concesionario.app.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -40,9 +42,11 @@ public class TrabajadorResource {
     private String applicationName;
 
     private final TrabajadorService trabajadorService;
+    private final TrabajadorDTOService trabajadorDTOService;
 
-    public TrabajadorResource(TrabajadorService trabajadorService) {
+    public TrabajadorResource(TrabajadorService trabajadorService, TrabajadorDTOService trabajadorDTOService) {
         this.trabajadorService = trabajadorService;
+        this.trabajadorDTOService = trabajadorDTOService;
     }
 
     /**
@@ -92,9 +96,9 @@ public class TrabajadorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of trabajadors in body.
      */
     @GetMapping("/trabajadors")
-    public ResponseEntity<List<Trabajador>> getAllTrabajadors(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<List<TrabajadorDTO>> getAllTrabajadors(Pageable pageable, @RequestParam MultiValueMap<String, String> queryParams, UriComponentsBuilder uriBuilder) {
         log.debug("REST request to get a page of Trabajadors");
-        Page<Trabajador> page = trabajadorService.findAll(pageable);
+        Page<TrabajadorDTO> page = trabajadorDTOService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(uriBuilder.queryParams(queryParams), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -106,9 +110,9 @@ public class TrabajadorResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the trabajador, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/trabajadors/{id}")
-    public ResponseEntity<Trabajador> getTrabajador(@PathVariable Long id) {
+    public ResponseEntity<TrabajadorDTO> getTrabajador(@PathVariable Long id) {
         log.debug("REST request to get Trabajador : {}", id);
-        Optional<Trabajador> trabajador = trabajadorService.findOne(id);
+        Optional<TrabajadorDTO> trabajador = trabajadorDTOService.findOne(id);
         return ResponseUtil.wrapOrNotFound(trabajador);
     }
 

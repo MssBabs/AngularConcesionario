@@ -21,7 +21,8 @@
       "cargo": "Cargo",
       "telefono": "Telefono",
 
-      "countSales": "Numero de Ventas"
+      "countSales": "Numero de Ventas",
+      "seeTrabajador": "Ver Trabajadores"
     }
   }
 }

@@ -20,7 +20,11 @@ export class TrabajadorUpdateComponent implements OnInit {
     nombre: [],
     apellido: [],
     cargo: [],
-    telefono: []
+    telefono: [],
+
+    numeroVentas: [],
+    comision: []
+
   });
 
   constructor(protected trabajadorService: TrabajadorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -40,7 +44,10 @@ export class TrabajadorUpdateComponent implements OnInit {
       nombre: trabajador.nombre,
       apellido: trabajador.apellido,
       cargo: trabajador.cargo,
-      telefono: trabajador.telefono
+      telefono: trabajador.telefono,
+
+      numeroVentas: trabajador.numeroVentas,
+      comision: trabajador.comision
     });
   }
 
@@ -66,7 +73,10 @@ export class TrabajadorUpdateComponent implements OnInit {
       nombre: this.editForm.get(['nombre']).value,
       apellido: this.editForm.get(['apellido']).value,
       cargo: this.editForm.get(['cargo']).value,
-      telefono: this.editForm.get(['telefono']).value
+      telefono: this.editForm.get(['telefono']).value,
+
+      numeroVentas: this.editForm.get(['numeroVentas']).value,
+      comision: this.editForm.get(['comision']).value
     };
     return entity;
   }
